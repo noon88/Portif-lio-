@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio – Felipe Gabriel</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Felipe<span>Gabriel</span></h1>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#portfolio">Trabalhos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Designer Gráfico, Editor de Vídeo & Desenvolvedor de games(Godot)</h2>
+      <p>Transformo ideias em visuais impactantes.</p>
+      <a href="#portfolio" class="btn">Ver meus trabalhos</a>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE ===== -->
+  <section id="sobre" class="sobre">
+    <div class="sobre-container">
+      <img src="avatar.png" alt="Felipe Gabriel">
+      <div class="sobre-texto">
+        <h2>Sobre mim</h2>
+        <p>
+          Oi! Chamo-me Felipe, designer apaixonado por transformar ideias em visuais que conectam pessoas e marcas. Trabalho com design gráfico e criação de vídeos dinâmicos, sempre unindo criatividade, propósito e estética. Além disso estou iniciando na programação e criação de games, já com alguns projetos sendo desenvolvidos
+        </p>
+        <p>
+          Gosto de experimentar estilos, explorar novas referências e dar vida a conceitos inovadores. Se o projeto tem espaço para impacto visual e identidade, pode contar comigo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVIÇOS ===== -->
+  <section id="servicos" class="servicos">
+    <h2>Serviços</h2>
+    <div class="servicos-container">
+      <div class="servico-card">
+        <i class="fa-solid fa-paintbrush"></i>
+        <h3>Identidade Visual</h3>
+      </div>
+      <div class="servico-card">
+        <i class="fa-solid fa-video"></i>
+        <h3>Edição de Fotos e Vídeos</h3>
+      </div>
+      <div class="servico-card">
+        <i class="fa-solid fa-film"></i>
+        <h3>Motion Design</h3>
+      </div>
+      <div class="servico-card">
+        <i class="fa-solid fa-book-open"></i>
+        <h3>Storytelling</h3>
+      </div>
+      <div class="servico-card">
+        <i class="fa-solid fa-cube"></i>
+        <h3>Modelagem 3D (iniciante)</h3>
+      </div>
+      <div class="servico-card">
+        <i class="fa-solid fa-gamepad"></i>
+        <h3>Desenvolvedor de games (iniciante)</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFÓLIO ===== -->
+  <section id="portfolio" class="portfolio">
+    <h1>Trabalhos Recentes:</h1>
+    
+   <div class="posts"><h2>Posts</h3></div>
+    <div class="grid">
+      <div class="item"><img src="projeto1.png" alt="Projeto 1"><p>Projeto 1</p></div>
+      <div class="item"><img src="projeto2.png" alt="Projeto 2"><p>Projeto 2</p></div>
+      <div class="item"><img src="projeto3.png" alt="Projeto 3"><p>Projeto 3</p></div>
+  
+    </div>
+  </section>
+
+  <!-- ===== MODELOS 3D ===== -->
+  <section id="modelos3d" class="modelos3d">
+    <h2>Modelos 3D</h2>
+
+    <div class="lista-modelos">
+      <div class="modelo-item">
+        <h3>Headphones</h3>
+        <button class="btn-3d" data-model="modelos/modelo1/headphones">Visualizar em 3D</button>
+      </div>
+
+      <div class="modelo-item">
+        <h3>Doutor</h3>
+        <button class="btn-3d" data-model="modelos/modelo2/doctor">Visualizar em 3D</button>
+      </div>
+      
+      <div class="modelo-item">
+        <h3>Energy</h3>
+        <button class="btn-3d" data-model="modelos/modelo3/energy">Visualizar em 3D</button>
+      </div>
+    </div>
+
+    <div id="viewer3d" class="viewer3d"></div>
+  </section>
+
+  <!-- ===== CONTATO ===== -->
+<section id="contato" class="contato">
+  <h2>Contato</h2>
+  <p>Vamos trabalhar juntos! Envie uma mensagem.</p>
+
+  <form id="contact-form">
+    <input type="text" placeholder="Nome" name="name" required>
+    <input type="email" placeholder="Email" name="email" required>
+    <textarea placeholder="Mensagem" name="message" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+    <div class="social">
+      <a href="https://www.instagram.com/studio.nebaro?igsh=MXF4MWliN2JmdHhtYQ=="><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://wa.me/5574988566949"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="mailto:fgdosantos170607@gmail.com"><i class="fas fa-envelope"></i> E-mail</a>
+    </div>
+  </section>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/OBJLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/MTLLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("SEU_USER_ID"); // substitua pelo seu User ID
+
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_sauhe27', 'template_1u6js27', iYPBRUUrwxA4nfJs)
+      .then(() => {
+        alert('Mensagem enviada com sucesso!');
+        form.reset();
+      }, (err) => {
+        alert('Erro ao enviar a mensagem. Tente novamente.');
+        console.error(err);
+      });
+  });
+</script>
+</body>
+</html>
