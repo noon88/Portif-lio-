@@ -21,50 +21,60 @@ scene.add(light);
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 
-// ===== MODELOS COM SUAS URLs =====
+// ===== CAMINHO BASE DO GITHUB PARA MTL E TEXTURAS =====
+// coloque AQUI a pasta "modelos" do GitHub
+const baseGitHub = "https://raw.githubusercontent.com/noon88/Portif-lio-/main/";
+
+// ===== MODELOS =====
 const modelos = [
   {
     nome: "Headphones",
-    mtlURL: "https://seusite.com/path/modelos/modelo1/headphones.mtl",
-    objURL: "https://seusite.com/path/modelos/modelo1/headphones.obj"
+    mtlURL: baseGitHub + "modelos/modelo1/headphones.mtl",
+    objURL: "https://drive.google.com/uc?export=download&id=1Co5lRCU3cmCOPcGOXFSmu3tDpu_99OSK"
   },
   {
     nome: "Doctor",
-    mtlURL: "https://seusite.com/path/modelos/modelo2/doctor.mtl",
-    objURL: "https://seusite.com/path/modelos/modelo2/doctor.obj"
+    mtlURL: baseGitHub + "modelos/modelo2/doctor.mtl",
+    objURL: "https://drive.google.com/uc?export=download&id=1A4F1eORiLfmiAKHN1VpcH96FI-56iQNJ"
   },
-    {
+  {
     nome: "Energy",
-    mtlURL: "https://seusite.com/path/modelos/modelo1/energy.mtl",
-    objURL: "https://seusite.com/path/modelos/modelo1/energy.obj"
+    mtlURL: baseGitHub + "modelos/modelo3/energy.mtl",
+    objURL: "https://drive.google.com/uc?export=download&id=18EkqdMKzAVDAYTr63yOHU0uf76uHHNAa"
   },
 ];
 
-// ===== FUNÇÃO PARA CARREGAR UM MODELO A PARTIR DA URL =====
+// ===== FUNÇÃO PARA CARREGAR MODELO =====
 function carregarModeloDeURL(model) {
-  // Limpa modelo anterior da cena
+  // Remove o objeto anterior
   scene.traverse(child => {
     if (child.isMesh) scene.remove(child);
   });
 
   const mtlLoader = new THREE.MTLLoader();
+  mtlLoader.setResourcePath(baseGitHub); // garante texturas dentro da pasta
   mtlLoader.load(model.mtlURL, function(materials) {
     materials.preload();
 
     const objLoader = new THREE.OBJLoader();
     objLoader.setMaterials(materials);
-    objLoader.load(model.objURL, function(object) {
-      scene.add(object);
-      object.position.set(0, 0, 0);
-    }, undefined, function(error) {
-      console.error("Erro ao carregar OBJ:", error);
-    });
-  }, undefined, function(error) {
-    console.error("Erro ao carregar MTL:", error);
+
+    // ===== OBJ vindo do GOOGLE DRIVE =====
+    objLoader.load(
+      model.objURL,
+      function(object) {
+        scene.add(object);
+        object.position.set(0, 0, 0);
+      },
+      undefined,
+      function(error) {
+        console.error("Erro ao carregar OBJ:", error);
+      }
+    );
   });
 }
 
-// ===== CRIA BOTÕES DINÂMICOS PARA CADA MODELO =====
+// ===== BOTÕES =====
 const btnContainer = document.createElement("div");
 btnContainer.style.margin = "20px 0";
 btnContainer.style.display = "flex";
@@ -79,13 +89,14 @@ modelos.forEach(modelo => {
   btn.style.color = "#3498db";
   btn.style.cursor = "pointer";
   btn.style.borderRadius = "5px";
+
   btn.addEventListener("click", () => carregarModeloDeURL(modelo));
   btnContainer.appendChild(btn);
 });
 
 container.parentElement.insertBefore(btnContainer, container);
 
-// ===== LOOP DE ANIMAÇÃO =====
+// ===== LOOP =====
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
