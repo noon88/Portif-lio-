@@ -84,9 +84,9 @@
     
    <div class="posts"><h2>Posts</h3></div>
     <div class="grid">
-      <div class="item"><img src="projeto1.png" alt="Projeto 1"><p>Projeto 1</p></div>
-      <div class="item"><img src="projeto2.png" alt="Projeto 2"><p>Projeto 2</p></div>
-      <div class="item"><img src="projeto3.png" alt="Projeto 3"><p>Projeto 3</p></div>
+      <div class="item"><img src="projeto1.png" alt="Projeto 1"><p>Acai Bowl</p></div>
+      <div class="item"><img src="projeto2.png" alt="Projeto 2"><p>Monster Energy</p></div>
+      <div class="item"><img src="projeto3.png" alt="Projeto 3"><p>Design Profile</p></div>
   
     </div>
   </section>
@@ -98,17 +98,21 @@
     <div class="lista-modelos">
       <div class="modelo-item">
         <h3>Headphones</h3>
-        <button class="btn-3d" data-model="modelos/modelo1/headphones">Visualizar em 3D</button>
+       <a href="https://skfb.ly/pE8WO"><button class="btn-3d">Visualizar em 3D</button>
+       </a>
       </div>
 
       <div class="modelo-item">
-        <h3>Doutor</h3>
-        <button class="btn-3d" data-model="modelos/modelo2/doctor">Visualizar em 3D</button>
+        <h3>Black Plague</h3>
+        <a href="https://skfb.ly/pE8YQ"><button class="btn-3d">Visualizar em 3D</button>
+        </a>
       </div>
       
       <div class="modelo-item">
-        <h3>Energy</h3>
-        <button class="btn-3d" data-model="modelos/modelo3/energy">Visualizar em 3D</button>
+      <h3>Monster Energy</h3>
+      <a href="https://skfb.ly/pEsno">
+        <button class="btn-3d">Visualizar em 3D</button>
+        </a>
       </div>
     </div>
 
@@ -136,27 +140,27 @@
   </section>
 
   <!-- ===== SCRIPTS ===== -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/OBJLoader.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/MTLLoader.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
   <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  emailjs.init("SEU_USER_ID"); // substitua pelo seu User ID
+  emailjs.init("iYPBRUUrwxA4nfJs-"); // User ID correto
 
   const form = document.getElementById('contact-form');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    emailjs.sendForm('service_sauhe27', 'template_1u6js27', iYPBRUUrwxA4nfJs)
-      .then(() => {
-        alert('Mensagem enviada com sucesso!');
-        form.reset();
-      }, (err) => {
-        alert('Erro ao enviar a mensagem. Tente novamente.');
-        console.error(err);
-      });
+    emailjs.sendForm(
+      'service_sauhe27',    // seu Service ID
+      'template_1u6js27',   // seu Template ID
+      'iYPBRUUrwxA4nfJs-'   // User ID (em string!)
+    )
+    .then(() => {
+      alert('Mensagem enviada com sucesso!');
+      form.reset();
+    }, (err) => {
+      alert('Erro ao enviar a mensagem. Tente novamente.');
+      console.error(err);
+    });
   });
 </script>
 </body>
