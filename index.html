@@ -140,28 +140,11 @@
   </section>
 
   <!-- ===== SCRIPTS ===== -->
-  <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  emailjs.init("iYPBRUUrwxA4nfJs-"); // User ID correto
-
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    emailjs.sendForm(
-      'service_sauhe27',    // seu Service ID
-      'template_1u6js27',   // seu Template ID
-      'iYPBRUUrwxA4nfJs-'   // User ID (em string!)
-    )
-    .then(() => {
-      alert('Mensagem enviada com sucesso!');
-      form.reset();
-    }, (err) => {
-      alert('Erro ao enviar a mensagem. Tente novamente.');
-      console.error(err);
-    });
-  });
-</script>
+ <form action="https://formspree.io/f/xeoyzpyr" method="POST">
+  <input type="text" placeholder="Nome" name="name" required>
+  <input type="email" placeholder="Email" name="email" required>
+  <textarea placeholder="Mensagem" name="message" required></textarea>
+  <button type="submit">Enviar</button>
+</form>
 </body>
 </html>
